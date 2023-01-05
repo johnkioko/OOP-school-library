@@ -86,6 +86,12 @@ After you're finished please remove all the comments and instructions!
 
 To get a local copy up and running, follow these steps.
 
+Clone this repository to your desired folder:
+
+git clone https://github.com/johnkioko/OOP-school-library.git 
+create a directory in your preferred location (e.g in the Desktop or Document directory)
+Clone the repo in that directory.
+
 ### Prerequisites
 
 In order to run this project you need:
@@ -168,20 +174,13 @@ Example:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author1**
+👤 **John Mutisya**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/johnkioko)
+- Twitter: [@twitterhandle](https://twitter.com/John_Web_Dev)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/johnmutisya/)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+👤 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
