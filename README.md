@@ -25,14 +25,7 @@ OPTIONAL SECTIONS:
 After you're finished please remove all the comments and instructions!
 -->
 
-<div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
 
-  <h3><b>Microverse README Template</b></h3>
-
-</div>
 
 <!-- TABLE OF CONTENTS -->
 
@@ -60,10 +53,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 [OOP school library] <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
+> In this project, I will start building a school library app. In this initial step, I implement the classes to represent students and teachers.
 **[your_project__name]** is a...
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -72,48 +64,19 @@ After you're finished please remove all the comments and instructions!
 
 > Describe the tech stack and include only the relevant sections that apply to your project.
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
 <!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+<!--  ## 🚀 Live Demo <a name="live-demo"></a>
 
 > Add a link to your deployed project.
 
 - [Live Demo Link](https://yourdeployedapplicationlink.com)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- GETTING STARTED -->
 
