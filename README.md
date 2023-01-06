@@ -107,6 +107,7 @@ Example commands:
 ### Install
 
 Install this project with:
+Dependencies (a packet manager is required): then you run the command npm install in the terminal
 
 <!--
 Example command:
@@ -120,6 +121,8 @@ Example command:
 ### Usage
 
 To run the project, execute the following command:
+ruby -the name of the file-
+This will run the project in the terminal in the specified directory
 
 <!--
 Example command:
@@ -132,6 +135,7 @@ Example command:
 ### Run tests
 
 To run tests, run the following command:
+Tests will be implemented later.
 
 <!--
 Example command:
