@@ -56,7 +56,6 @@ After you're finished please remove all the comments and instructions!
 # 📖 [OOP school library] <a name="about-project"></a>
 
 > In this project, I will start building a school library app. In this initial step, I implement the classes to represent students and teachers.
-**[your_project__name]** is a...
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -91,18 +90,6 @@ Clone this repository to your desired folder:
 git clone https://github.com/johnkioko/OOP-school-library.git 
 create a directory in your preferred location (e.g in the Desktop or Document directory)
 Clone the repo in that directory.
-
-### Prerequisites
-
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
 
 ### Setup
 
@@ -179,17 +166,6 @@ Example:
 - GitHub: [@githubhandle](https://github.com/johnkioko)
 - Twitter: [@twitterhandle](https://twitter.com/John_Web_Dev)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/johnmutisya/)
-
-👤 
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
