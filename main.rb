@@ -1,8 +1,11 @@
 require './app'
 
-class Main
-  def main
-    app = App.new
-    app.library_menu
+def main
+  app = App.new
+  loop do
+    app.run
+    puts
   end
 end
+
+main

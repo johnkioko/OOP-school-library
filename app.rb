@@ -1,130 +1,195 @@
-require './book'
-require './rental'
 require './student'
 require './teacher'
-require './create_student'
-require './create_teacher'
-require './main'
-require './list_rentals'
-require './rent_out_book'
+require './book'
+require './rental'
 
 class App
-  attr_accessor :books, :persons, :rentals
-
   def initialize
+    # Print commands
+    @command = {
+      '1': 'List all books',
+      '2': 'List all people',
+      '3': 'Create a person',
+      '4': 'Create a book',
+      '5': 'Create a rental',
+      '6': 'List all rentals for a given person id',
+      '7': 'Exit'
+    }
+
+    # List of books
     @books = []
-    @persons = []
-    @rentals = []
+
+    # List of people
+    @people = []
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
-  def select_option
-    option = gets.chomp
-
-    case option
-    when '1' then list_all_books
-    when '2' then list_all_people
-    when '3' then create_a_person
-    when '4' then create_a_book
-    when '5' then create_a_rental
-    when '6' then list_rentals
-    when '7' then stop_application
-    else
-      puts 'Invalid option, option must be between 1 and 7'
-      select_option
+  # display commands
+  def display_command
+    @command.each do |index, command|
+      puts "#{index} - #{command}"
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
-  def library_menu
-    puts ''
-    puts 'Welcome to School library App!'
-    puts ''
-    puts 'Please chose an option by entering a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a Person'
-    puts '4 - Create a Book'
-    puts '5 - Create a Rental'
-    puts '6 - List all Rentals for a given Person ID'
-    puts '7 - Exit'
-    puts ''
-    select_option
-  end
-
+  # Print out all books
   def list_all_books
     if @books.empty?
-      puts 'No books available at the moment.'
-      puts ''
-      puts 'Enter 4 to create a new book.'
-      select_option
+      puts 'Please insert books first!!'
     else
-      puts 'List of available books.'
-      puts ''
-      @books.each do |book|
-        puts "Title: #{book.title}, Author: #{book.author}"
+      @books.each_with_index do |book, index|
+        puts "#{index}) Title: #{book.title}, Author: #{book.author}"
       end
-      library_menu
     end
   end
 
+  # Print out all books
   def list_all_people
-    if @persons.empty?
-      puts 'No people available at the moment'
-      puts ''
-      puts 'Enter 3 to create a new person'
-      select_option
+    if @people.empty?
+      puts 'Please insert people first!!'
     else
-      puts 'List of available people:'
-      puts ''
-      @persons.each do |person|
-        puts "#{[person.class]} Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      @people.each do |person|
+        puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
-      library_menu
     end
   end
 
-  def create_a_book
+  def list_all_person_with_numbers
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+  end
+
+  # Create Student
+  def create_student
+    print 'Age: '
+    age = gets.chomp
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Has parent permission? [Y/N]: '
+    permission = gets.chomp.downcase
+    case permission
+    when 'y' then parent_permission = true
+    when 'n' then parent_permission = false
+    end
+
+    # Create a student and push it to people array
+    @people.push(Student.new('11', age, name, parent_permission: parent_permission))
+  end
+
+  # Create teacher
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    # Create a student and push it to people array
+    @people.push(Teacher.new(specialization, age, name))
+  end
+
+  # Create a person
+  def create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the nummber]: '
+    case gets.chomp
+    when '1'
+      create_student
+
+    when '2'
+      create_teacher
+    end
+
+    # Success message
+    puts 'Person Created successfully'
+  end
+
+  # Create a Book
+  def create_book
     print 'Title: '
     title = gets.chomp
 
     print 'Author: '
     author = gets.chomp
 
+    # Create the book object and add it to the books list
     @books.push(Book.new(title, author))
-    puts 'Book created successfully!'
-    library_menu
+
+    # Success message
+    puts 'Book Created successfully'
   end
 
-  def create_a_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    person_no = gets.chomp
+  # Create a rental
+  def create_rental()
+    # Select Book
+    puts 'Select a book from the following list by number'
+    list_all_books
+    book_option = gets.chomp.to_i
+    puts
 
-    case person_no
-    when '1'
-      create_a_student
-    when '2'
-      create_a_teacher
+    # Select Person
+    puts 'Select a person from the following list by number (not id)'
+    list_all_person_with_numbers
+    person_option = gets.chomp.to_i
+    puts
+
+    # Select Date
+    print 'Date: '
+    date = gets.chomp
+
+    # Create the book object and add it to the books list
+    Rental.new(date, @books[book_option], @people[person_option])
+
+    # Success Message
+    puts 'Rental created successfully'
+  end
+
+  # List all rentals for a given person id
+  def rentals_of_person()
+    # Select person
+    print 'Id of person: '
+    id = gets.chomp.to_i
+    person_arr = @people.select { |person| person.id == id }
+
+    # Print rentals for that person
+    if person_arr.empty?
+      puts 'No person matches the given ID!!'
     else
-      puts 'Invalid Selection'
-      puts ''
+      person_arr[0].rentals.each do |rental|
+        puts "Date: #{rental.date}, Book #{rental.book.title} by #{rental.book.author}"
+      end
     end
-    library_menu
   end
 
-  def create_a_rental
-    rent_book
+  def choose_option(input)
+    case input
+    when '1' then list_all_books
+    when '2' then list_all_people
+    when '3' then create_person
+    when '4' then create_book
+    when '5' then create_rental
+    when '6' then rentals_of_person
+    end
   end
 
-  def list_rentals
-    list_person_rentals
+  def user_option_executer
+    input = gets.chomp
+
+    if input == '7'
+      puts 'Thank you for using this app!'
+      exit
+    else
+      choose_option(input)
+    end
   end
 
-  def stop_application
-    puts 'Thank you for using this app!'
-    exit
+  # Run the program
+  def run
+    puts 'Please choose an option by entering a number:'
+    display_command
+    user_option_executer
   end
-
-  start_app = Main.new
-  start_app.main
 end
